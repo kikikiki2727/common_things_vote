@@ -13,7 +13,7 @@
           <div class="btn btn-primary">
             投票
           </div>
-          <P class="vote_number">5件</P>
+          <p class="vote_number">5件</p>
         </div>
       </li>
     </div>
@@ -21,24 +21,25 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
   name: 'JokeIndex',
   data: function () {
     return {
-      jokes: []
     }
   },
+  computed: {
+    ...mapGetters('jokes', [ 'jokes' ]),
+  },
+
   created() {
     this.fetchJokes();
   },
 
   methods: {
-    fetchJokes() {
-      this.$axios.get("jokes")
-        .then(res => this.jokes = res.data)
-        .catch(err => console.log(err.status));
-    }
-  }
+    ...mapActions('jokes', [ 'fetchJokes' ]),
+  },
 }
 </script>
 
@@ -63,6 +64,7 @@ export default {
 
   .joke_sentence {
     margin-bottom: 20px;
+    white-space: pre-line; /* 改行や空白を表示 */
   }
 
   .vote_contents {

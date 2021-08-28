@@ -1,0 +1,64 @@
+inherit_from: .rubocop_todo.yml
+
+# rubocop関連のgemをrequireする
+require:
+  - rubocop-rails
+
+# 自動生成されるものはチェック対象から除外する
+AllCops:
+  TargetRubyVersion: 2.7.2
+  Exclude:
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'lib/**'
+    - 'tmp/**/*'
+    - 'node_modules/**/*'
+    - "config/initializers/*"
+    - "config/deploy/*"
+    - "config/puma.rb"
+    - "config/environments/*"
+    - "spec/**/*"
+
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+# モジュール名::クラス名の定義を許可
+ClassAndModuleChildren:
+  Enabled: false
+
+# メソッド名のprefixに「set_」「get_」を許可
+AccessorMethodName:
+  Enabled: false
+
+# クラスのコメント必須を無視
+Documentation:
+  Enabled: false
+
+# 文字リテラルのイミュータブル宣言を無視
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# メソッドの内容の点数
+# Assignment : 代入
+# Branch : メソッド呼び出し
+# Condition : 条件
+Metrics/AbcSize:
+  Max: 25 
+
+# メソッドの行の長さ
+Metrics/MethodLength:
+  Max: 30
+
+# メソッドの複雑さ
+Metrics/PerceivedComplexity:
+  Max: 11
+
+# メソッドの線形的複雑度、if文の数とか？
+Metrics/CyclomaticComplexity:
+  Max: 11
+
+# dependent: :destroyオプションが必須かどうか
+Rails/HasManyOrHasOneDependent:
+  Enabled: false

@@ -25,16 +25,18 @@ export default {
   name: 'JokeIndex',
   data: function () {
     return {
-      jokes: [
-        {
-          id: 1,
-          sentence: 'こんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちはこんにちは',
-        },
-        {
-          id: 2,
-          sentence: 'こんばんは',
-        }
-      ]
+      jokes: []
+    }
+  },
+  created() {
+    this.fetchJokes();
+  },
+
+  methods: {
+    fetchJokes() {
+      this.$axios.get("jokes")
+        .then(res => this.jokes = res.data)
+        .catch(err => console.log(err.status));
     }
   }
 }

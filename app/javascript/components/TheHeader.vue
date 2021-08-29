@@ -1,10 +1,10 @@
 <template>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light justify-content-between">
-      <a class="navbar-brand" href="#">あるあるネタ投票</a>
+      <router-link :to="{ name: 'JokeIndex' }" class="navbar-brand">あるあるネタ投票</router-link>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">投票</a>
+          <router-link :to="{ name: 'JokeCreate' }" class="nav-link">投稿</router-link>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">ユーザー登録</a>

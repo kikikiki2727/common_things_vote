@@ -14,6 +14,9 @@
             投票
           </div>
           <p class="vote_number">5件</p>
+          <div class="btn btn-danger" @click="deleteConfirm(joke)">
+            削除
+          </div>
         </div>
       </li>
     </div>
@@ -38,7 +41,20 @@ export default {
   },
 
   methods: {
-    ...mapActions('jokes', [ 'fetchJokes' ]),
+    ...mapActions('jokes', [ 'fetchJokes', 'deleteJoke' ]),
+
+    async handleDeleteJoke(joke) {
+      try {
+        await this.deleteJoke(joke)
+      } catch(error) {
+        console.log(error)
+      }
+    },
+
+    deleteConfirm(joke) {
+      const boolean = confirm('削除してもよろしいですか？');
+      if(boolean) this.handleDeleteJoke(joke);
+    }
   },
 }
 </script>

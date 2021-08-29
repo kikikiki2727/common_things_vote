@@ -6,20 +6,47 @@
         <li class="nav-item">
           <router-link :to="{ name: 'JokeCreate' }" class="nav-link">投稿</router-link>
         </li>
-        <li class="nav-item">
-          <router-link :to="{ name: 'UserRegister' }" class="nav-link">ユーザー登録</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link :to="{ name: 'UserLogin' }" class="nav-link">ログイン</router-link>
-        </li>
+
+        <template v-if="!authUser">
+          <li class="nav-item">
+            <router-link :to="{ name: 'UserRegister' }" class="nav-link">ユーザー登録</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link :to="{ name: 'UserLogin' }" class="nav-link">ログイン</router-link>
+          </li>
+         </template>
+
+         <template v-else>
+           <li class="nav-item">
+             <router-link to="#" class="nav-link" @click="logout">ログアウト</router-link>
+           </li>
+         </template>
       </ul>
     </nav>
   </header>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
-  name: "TheHeader"
+  name: "TheHeader",
+  computed: {
+    ...mapGetters('users', [ 'authUser' ])
+  },
+
+  methods: {
+    ...mapActions('users', [ 'logoutUser' ]),
+
+    async logout() {
+      try {
+        await this.logoutUser()
+        this.$router.push({ name: 'JokeIndex' })
+      } catch(error) {
+        console.log(error);
+      }
+    }
+  }
 }
 </script>
 

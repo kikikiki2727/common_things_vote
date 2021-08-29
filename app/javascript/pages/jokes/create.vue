@@ -29,6 +29,11 @@ export default {
       }
     }
   },
+
+  computed: {
+    ...mapGetters('users', [ 'authUser' ])
+  },
+
   methods: {
     ...mapActions('jokes', [ 'createJoke' ]),
 

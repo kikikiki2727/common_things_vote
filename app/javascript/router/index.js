@@ -21,7 +21,7 @@ const router = new Router({
       path: '/joke_create',
       component: JokeCreate,
       name: 'JokeCreate',
-      meta: { requireAuth: true },
+      meta: { requiredAuth: true },
     },
     {
       path: '/register',
@@ -42,8 +42,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   store.dispatch('users/fetchAuthUser').then((authUser) => {
     if (to.matched.some(record => record.meta.requiredAuth) && !authUser) {
-      next({ name: 'LoginIndex' });
-      alert('ログインが必要です')
+      next({ name: 'UserLogin' });
     } else {
       next();
     }

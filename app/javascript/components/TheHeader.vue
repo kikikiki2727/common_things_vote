@@ -10,7 +10,7 @@
           <router-link :to="{ name: 'UserRegister' }" class="nav-link">ユーザー登録</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">ログイン</a>
+          <router-link :to="{ name: 'UserLogin' }" class="nav-link">ログイン</router-link>
         </li>
       </ul>
     </nav>

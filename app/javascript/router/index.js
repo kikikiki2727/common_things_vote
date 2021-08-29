@@ -4,6 +4,7 @@ import Router from 'vue-router';
 import JokeIndex from '../pages/jokes/index'
 import JokeCreate from '../pages/jokes/create'
 import UserRegister from '../pages/register/index'
+import UserLogin from '../pages/login/index'
 
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ const router = new Router({
       path: '/register',
       component: UserRegister,
       name: 'UserRegister',
+    },
+    {
+      path: '/login',
+      component: UserLogin,
+      name: 'UserLogin',
     },
   ]
 })

@@ -15,7 +15,7 @@ const router = new Router({
       name: 'JokeIndex'
     },
     {
-      path: '/jokes/create',
+      path: '/joke_create',
       component: JokeCreate,
       name: 'JokeCreate'
     },

@@ -12,6 +12,9 @@ const mutations = {
   setJokes: (state, jokes) => {
     state.jokes = jokes
   },
+  addJoke: (state, joke) => {
+    state.jokes.push(joke)
+  },
 }
 
 const actions = {
@@ -21,6 +24,12 @@ const actions = {
         commit('setJokes', res.data)
       })
       .catch(err => console.log(err.response));
+  },
+  createJoke({ commit }, joke) {
+    return axios.post('jokes', joke)
+      .then(res => {
+        commit('addJoke', res.data)
+      })
   }
 }
 

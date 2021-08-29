@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import TopIndex from '../pages/jokes/index'
+import JokeIndex from '../pages/jokes/index'
+import JokeCreate from '../pages/jokes/create'
 
 Vue.use(Router)
 
@@ -10,8 +11,13 @@ const router = new Router({
   routes:[
     {
       path: '/',
-      component: TopIndex,
+      component: JokeIndex,
       name: 'JokeIndex'
+    },
+    {
+      path: '/jokes/create',
+      component: JokeCreate,
+      name: 'JokeCreate'
     },
   ]
 })

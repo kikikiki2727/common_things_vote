@@ -15,6 +15,11 @@ const mutations = {
   addJoke: (state, joke) => {
     state.jokes.push(joke)
   },
+  removeJoke: (state, removeJoke) => {
+    state.jokes = state.jokes.filter(joke => {
+      return joke.id != removeJoke.id
+    })
+  },
 }
 
 const actions = {
@@ -30,7 +35,13 @@ const actions = {
       .then(res => {
         commit('addJoke', res.data)
       })
-  }
+  },
+  deleteJoke({ commit }, joke) {
+    return axios.delete(`jokes/${joke.id}`)
+      .then(res => {
+        commit('removeJoke', res.data)
+      })
+  },
 }
 
 export default {

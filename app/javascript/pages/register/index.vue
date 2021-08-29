@@ -56,7 +56,7 @@ export default {
     userRegister() {
       this.$axios.post('/users', { user: this.user })
         .then(res => {
-          alert('登録しました')
+          this.$router.push({ name: 'JokeIndex' })
         })
     }
   }

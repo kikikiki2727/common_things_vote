@@ -14,9 +14,11 @@
             投票
           </div>
           <p class="vote_number">5件</p>
-          <div class="btn btn-danger" @click="deleteConfirm(joke)">
-            削除
-          </div>
+          <template v-if="isAuthUserJoke(joke)">
+            <div class="btn btn-danger" @click="deleteConfirm(joke)">
+              削除
+            </div>
+          </template>
         </div>
       </li>
     </div>
@@ -34,6 +36,7 @@ export default {
   },
   computed: {
     ...mapGetters('jokes', [ 'jokes' ]),
+    ...mapGetters('users', [ 'authUser' ]),
   },
 
   created() {
@@ -54,6 +57,12 @@ export default {
     deleteConfirm(joke) {
       const boolean = confirm('削除してもよろしいですか？');
       if(boolean) this.handleDeleteJoke(joke);
+    },
+
+    isAuthUserJoke(joke) {
+      if (this.authUser){
+        return joke.user_id === this.authUser.id
+      } else return false
     }
   },
 }

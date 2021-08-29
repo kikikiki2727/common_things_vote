@@ -5,8 +5,7 @@ class Api::JokesController < ApplicationController
   end
 
   def create
-    joke = Joke.new(joke_params)
-    joke.user_id = 1
+    joke = current_user.jokes.build(joke_params)
 
     if joke.save
       render json: joke

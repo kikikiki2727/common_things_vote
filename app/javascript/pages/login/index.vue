@@ -17,7 +17,7 @@
       </div>
 
       <div class="create_btn">
-        <button class="btn btn-primary">
+        <button class="btn btn-primary" @click="login()">
           ログイン
         </button>
       </div>
@@ -33,6 +33,16 @@ export default {
       user: {
         email: '',
         password: '',
+      }
+    }
+  },
+  methods: {
+    async login() {
+      try {
+        await this.loginUser(this.user)
+        this.$router.push({ name: 'JokeIndex' })
+      } catch(error) {
+          console.log(error);
       }
     }
   }

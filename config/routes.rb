@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :jokes, only: %i[index create destroy]
+    resources :sessions, only: %i[create destroy]
     resources :users, only: %i[create]
   end
   

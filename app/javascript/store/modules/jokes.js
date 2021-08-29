@@ -31,7 +31,7 @@ const actions = {
       .catch(err => console.log(err.response));
   },
   createJoke({ commit }, joke) {
-    return axios.post('jokes', joke)
+    return axios.post('jokes', { joke: joke })
       .then(res => {
         commit('addJoke', res.data)
       })

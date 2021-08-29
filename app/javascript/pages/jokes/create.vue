@@ -47,6 +47,7 @@ export default {
 <style scope>
   .joke_create {
     margin: 0 40px;
+    margin-bottom: 20px;
   }
 
   .page_title {

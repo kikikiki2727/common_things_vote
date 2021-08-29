@@ -18,7 +18,7 @@
 
          <template v-else>
            <li class="nav-item">
-             <router-link to="#" class="nav-link" @click="logout">ログアウト</router-link>
+             <a class="nav-link" @click="logout()">ログアウト</a>
            </li>
          </template>
       </ul>

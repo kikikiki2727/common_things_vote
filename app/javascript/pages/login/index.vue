@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: 'UserLogin',
   data() {
@@ -37,6 +39,8 @@ export default {
     }
   },
   methods: {
+    ...mapActions('users', [ 'loginUser' ]),
+
     async login() {
       try {
         await this.loginUser(this.user)

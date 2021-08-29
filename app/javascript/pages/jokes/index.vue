@@ -60,7 +60,9 @@ export default {
     },
 
     isAuthUserJoke(joke) {
-      return joke.user_id === this.authUser.id
+      if (this.authUser){
+        return joke.user_id === this.authUser.id
+      } else return false
     }
   },
 }

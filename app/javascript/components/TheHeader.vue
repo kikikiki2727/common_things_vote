@@ -7,7 +7,7 @@
           <router-link :to="{ name: 'JokeCreate' }" class="nav-link">投稿</router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">ユーザー登録</a>
+          <router-link :to="{ name: 'UserRegister' }" class="nav-link">ユーザー登録</router-link>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">ログイン</a>

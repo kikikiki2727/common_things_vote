@@ -1,6 +1,7 @@
 <template>
   <div>
     <TheHeader />
+    <TheFlash />
     <router-view />
     <TheFooter />
   </div>
@@ -9,10 +10,13 @@
 <script>
 import TheHeader from './components/TheHeader.vue'
 import TheFooter from './components/TheFooter.vue'
+import TheFlash from './components/TheFlash.vue'
+
 export default {
   components: { 
     TheFooter, 
-    TheHeader 
+    TheHeader,
+    TheFlash,
   },
 }
 </script>

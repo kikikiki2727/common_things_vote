@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 
 export default {
   name: 'JokeIndex',
@@ -45,12 +45,15 @@ export default {
 
   methods: {
     ...mapActions('jokes', [ 'fetchJokes', 'deleteJoke' ]),
+    ...mapMutations('flash', [ 'setMessage' ]),
 
     async handleDeleteJoke(joke) {
       try {
         await this.deleteJoke(joke)
+        this.setMessage({ message: 'あるあるネタを削除しました', timeout: 3000 })
       } catch(error) {
         console.log(error)
+        this.setMessage({ message: 'あるあるネタを削除できませんでした', timeout: 5000 });
       }
     },
 

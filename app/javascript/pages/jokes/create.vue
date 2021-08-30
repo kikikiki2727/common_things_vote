@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 
 export default {
   name: "JokeCreate",
@@ -36,13 +36,16 @@ export default {
 
   methods: {
     ...mapActions('jokes', [ 'createJoke' ]),
+    ...mapMutations('flash', [ 'setMessage' ]),
 
     async handleCreateJoke() {
       try {
         await this.createJoke(this.joke);
         this.$router.push({ name: 'JokeIndex' });
+        this.setMessage({ message: 'あるあるネタを投稿しました', timeout: 3000 })
       } catch(error) {
         console.log(error);
+        this.setMessage({ message: 'あるあるネタを投稿できませんでした', timeout: 3000 });
       }
     }
   },

@@ -43,6 +43,7 @@ router.beforeEach((to, from, next) => {
   store.dispatch('users/fetchAuthUser').then((authUser) => {
     if (to.matched.some(record => record.meta.requiredAuth) && !authUser) {
       next({ name: 'UserLogin' });
+      store.commit('flash/setMessage', { message: 'ログインしてください', timeout: 3000 })
     } else {
       next();
     }

@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
 
 export default {
   name: 'UserLogin',
@@ -40,13 +40,16 @@ export default {
   },
   methods: {
     ...mapActions('users', [ 'loginUser' ]),
+    ...mapMutations('flash', [ 'setMessage' ]),
 
     async login() {
       try {
         await this.loginUser(this.user)
         this.$router.push({ name: 'JokeIndex' })
+        this.setMessage({ message: 'ログインしました', timeout: 3000 })
       } catch(error) {
           console.log(error);
+          this.setMessage({ message: 'ログインできませんでした', timeout: 3000 });
       }
     }
   }

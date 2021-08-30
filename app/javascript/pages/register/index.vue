@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   name: "UserRegister",
   data() {
@@ -53,10 +55,15 @@ export default {
   },
 
   methods: {
+    ...mapMutations('flash', [ 'setMessage' ]),
+
     userRegister() {
       this.$axios.post('/users', { user: this.user })
         .then(res => {
-          this.$router.push({ name: 'JokeIndex' })
+          this.$router.push({ name: 'UserLogin' })
+          this.setMessage({ message: 'ユーザー登録しました', timeout: 3000 })
+        }).catch(err => {
+          this.setMessage({ message: 'ユーザー登録できませんでした', timeout: 3000 })
         })
     }
   }

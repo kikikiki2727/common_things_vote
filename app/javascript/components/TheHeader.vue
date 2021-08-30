@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapMutations, mapActions } from 'vuex'
 
 export default {
   name: "TheHeader",
@@ -37,13 +37,16 @@ export default {
 
   methods: {
     ...mapActions('users', [ 'logoutUser' ]),
+    ...mapMutations('flash', [ 'setMessage' ]),
 
     async logout() {
       try {
         await this.logoutUser()
         this.$router.push({ name: 'JokeIndex' })
+        this.setMessage({ message: 'ログアウトしました', timeout: 3000 })
       } catch(error) {
         console.log(error);
+        this.setMessage({ message: 'ログアウトできませんでした', timeout: 3000 });
       }
     }
   }

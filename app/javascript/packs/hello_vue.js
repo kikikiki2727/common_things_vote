@@ -11,6 +11,7 @@ import router from '../router'
 import axios from '../plugins/axios'
 import store from '../store'
 import 'bootstrap/dist/css/bootstrap.css'
+import '../plugins/veevalidate'
 
 Vue.config.productionTip = false;
 

@@ -2,25 +2,37 @@
   <div class="user_login">
     <h2 class="page_title">ログイン</h2>
     <div class="user_login_form">
-      <div class="form-group">
-        <label for="email">
-          メールアドレス
-        </label>
-        <input id="email" type="email" class="form-control" v-model="user.email">
-      </div>
+      <validation-observer v-slot="{ handleSubmit } ">
+        <div class="form-group">
+          <validation-provider v-slot="{ errors }" rules="required|email" name="メールアドレス">
+            <label for="email">
+              メールアドレス
+            </label>
+            <input id="email" type="email" class="form-control" v-model="user.email">
+            <p class="text-danger">
+              {{ errors[0] }}
+            </p>
+          </validation-provider>
+        </div>
 
-      <div class="form-group">
-        <label for="password">
-          パスワード
-        </label>
-        <input id="password" type="password" class="form-control" v-model="user.password">
-      </div>
+        <div class="form-group">
+          <validation-provider v-slot="{ errors }" rules="required|min:4" name="パスワード">
+            <label for="password">
+              パスワード
+            </label>
+            <input id="password" type="password" class="form-control" v-model="user.password">
+            <p class="text-danger">
+              {{ errors[0] }}
+            </p>
+          </validation-provider>
+        </div>
 
-      <div class="create_btn">
-        <button class="btn btn-primary" @click="login()">
-          ログイン
-        </button>
-      </div>
+        <div class="create_btn">
+          <button class="btn btn-primary" @click="handleSubmit(login())">
+            ログイン
+          </button>
+        </div>
+      </validation-observer>
     </div>
   </div>
 </template>

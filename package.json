@@ -9,6 +9,7 @@
     "axios": "^0.21.1",
     "bootstrap": "4.3",
     "turbolinks": "^5.2.0",
+    "vee-validate": "^3.4.12",
     "vue": "^2.6.14",
     "vue-loader": "^15.9.8",
     "vue-router": "^3.5.2",

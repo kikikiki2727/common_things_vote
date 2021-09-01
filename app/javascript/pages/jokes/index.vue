@@ -5,47 +5,51 @@
       <p>自分が面白いと思ったあるあるネタに投票しまくりましょう！</p>
     </div>
     <div class="joke_list">
-      <li v-for="joke in jokes" :key="joke.id" class="joke_item">
-        <div class="joke_sentence">
-          {{ joke.sentence }}
-        </div>
-        <div class="vote_contents">
-          <div class="btn btn-primary">
-            投票
-          </div>
-          <p class="vote_number">5件</p>
-          <template v-if="isAuthUserJoke(joke)">
-            <div class="btn btn-danger" @click="deleteConfirm(joke)">
-              削除
-            </div>
-          </template>
-        </div>
-      </li>
+      <template v-for="joke in jokes" class="joke_item">
+        <JokeItem 
+          :joke="joke" 
+          :authUser="authUser" 
+          :votes="filterVote(joke)" 
+          :key="joke.id" 
+          @deleteConfirm="deleteConfirm(joke)"
+          @handleCreateVote="handleCreateVote(joke)" />
+      </template>
     </div>
   </div>
 </template>
 
 <script>
+import JokeItem from './components/JokeItem'
 import { mapGetters, mapMutations, mapActions } from 'vuex'
 
 export default {
   name: 'JokeIndex',
-  data: function () {
-    return {
-    }
+  components: {
+    JokeItem,
   },
   computed: {
     ...mapGetters('jokes', [ 'jokes' ]),
     ...mapGetters('users', [ 'authUser' ]),
+    ...mapGetters('votes', [ 'votes' ]),
+
+    filterVote() {
+      return function(value) {
+        return this.votes.filter(vote => {
+          return vote.joke_id === value.id
+        })
+      }
+    },
   },
 
   created() {
     this.fetchJokes();
+    this.fetchVotes();
   },
 
   methods: {
-    ...mapActions('jokes', [ 'fetchJokes', 'deleteJoke' ]),
     ...mapMutations('flash', [ 'setMessage' ]),
+    ...mapActions('jokes', [ 'fetchJokes', 'deleteJoke' ]),
+    ...mapActions('votes', [ 'fetchVotes', 'createVote' ]),
 
     async handleDeleteJoke(joke) {
       try {
@@ -62,11 +66,13 @@ export default {
       if(boolean) this.handleDeleteJoke(joke);
     },
 
-    isAuthUserJoke(joke) {
-      if (this.authUser){
-        return joke.user_id === this.authUser.id
-      } else return false
-    }
+    async handleCreateVote(joke) {
+      try {
+        await this.createVote(joke)
+      } catch(error) {
+        console.log(error)
+      }
+    },
   },
 }
 </script>
@@ -88,20 +94,5 @@ export default {
     margin: 0 20px;
     margin-bottom: 40px;
     list-style: none;
-  }
-
-  .joke_sentence {
-    margin-bottom: 20px;
-    white-space: pre-line; /* 改行や空白を表示 */
-  }
-
-  .vote_contents {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .vote_number {
-    margin: auto 5px;
   }
 </style>

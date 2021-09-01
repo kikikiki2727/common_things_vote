@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import jokes from './modules/jokes'
 import users from './modules/users'
 import flash from './modules/flash'
+import votes from './modules/votes'
 
 Vue.use(Vuex)
 
@@ -11,5 +12,6 @@ export default new Vuex.Store({
     jokes,
     users,
     flash,
+    votes,
   }
 })

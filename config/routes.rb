@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         get 'me'
       end
     end
+    get '/votes', to: 'votes#index'
   end
   
   get '*path', to: 'home#index'

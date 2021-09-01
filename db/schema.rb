@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_28_140530) do
+ActiveRecord::Schema.define(version: 2021_09_01_095007) do
 
   create_table "jokes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.text "sentence", null: false
@@ -30,5 +30,13 @@ ActiveRecord::Schema.define(version: 2021_08_28_140530) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "joke_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["joke_id"], name: "index_votes_on_joke_id"
+  end
+
   add_foreign_key "jokes", "users"
+  add_foreign_key "votes", "jokes"
 end

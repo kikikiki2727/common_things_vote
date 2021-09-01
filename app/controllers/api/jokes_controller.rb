@@ -1,6 +1,6 @@
 class Api::JokesController < ApplicationController
   def index
-    jokes = Joke.all
+    jokes = Joke.includes(:user)
     render json: jokes
   end
 

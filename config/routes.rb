@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :jokes, only: %i[index create destroy], shallow: true do
-      resources :votes, only: %i[create destroy]
+      resources :votes, only: %i[create]
     end
     resources :sessions, only: %i[create destroy]
     resources :users, only: %i[create] do

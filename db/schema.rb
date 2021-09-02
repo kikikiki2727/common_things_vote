@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2021_09_01_095007) do
 
   create_table "jokes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.text "sentence", null: false
+    t.integer "vote_count", default: 0, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

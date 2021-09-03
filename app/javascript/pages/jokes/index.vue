@@ -20,6 +20,11 @@
           @handleCreateVote="handleCreateVote(joke)" />
       </template>
     </div>
+    <transition name="return_button">
+      <div class="return_top_button btn btn-secondary" v-show="returnTopActive" @click="returnTop()">
+        <font-awesome-icon icon="chevron-circle-up" />
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -31,6 +36,12 @@ export default {
   name: 'JokeIndex',
   components: {
     JokeItem,
+  },
+  data() {
+    return {
+      returnTopActive: false,
+      scroll: 0,
+    }
   },
 
   computed: {
@@ -50,6 +61,10 @@ export default {
   created() {
     this.fetchJokes();
     this.fetchVotes();
+  },
+
+  mounted() {
+    window.addEventListener('scroll', this.scrollWindow)
   },
 
   methods: {
@@ -92,6 +107,23 @@ export default {
     handleVoteSortJokes() {
       this.updateVoteSortJokes()
     },
+
+    returnTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+    },
+
+    scrollWindow() {
+
+      this.scroll = window.scrollY
+      if ( 100 <= this.scroll ) {
+        this.returnTopActive = true
+      } else {
+        this.returnTopActive = false
+      }
+    },
   },
 }
 </script>
@@ -109,6 +141,10 @@ export default {
     margin-bottom: 40px;
   }
 
+  .btn-outline-secondary {
+    margin-left: 3px;
+  }
+
   .joke_list {
     width: 70%;
     margin: 0 auto;
@@ -120,5 +156,19 @@ export default {
     margin: 0 20px;
     margin-bottom: 40px;
     list-style: none;
+  }
+
+  .return_top_button {
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .return_button-enter-active, .return_button-leave-active {
+    transition: opacity .5s;
+  }
+
+  .return_button-enter, .return_button-leave-to {
+    opacity: 0;
   }
 </style>

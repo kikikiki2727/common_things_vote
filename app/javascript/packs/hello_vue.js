@@ -12,6 +12,13 @@ import axios from '../plugins/axios'
 import store from '../store'
 import 'bootstrap/dist/css/bootstrap.css'
 import '../plugins/veevalidate'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faChevronCircleUp } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(faChevronCircleUp)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false;
 

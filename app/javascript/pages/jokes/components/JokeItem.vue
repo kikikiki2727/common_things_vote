@@ -5,7 +5,7 @@
     </div>
     <div class="vote_contents">
       <p class="vote_number">{{ votes.length }}票</p>
-      <div class="btn btn-primary" @click="handleCreateVote">投票</div>
+      <div class="btn btn-success" @click="handleCreateVote">投票</div>
       <template v-if="isAuthUserJoke(joke)">
         <div class="btn btn-danger delete_btn" @click="handleDeleteConfirm">
           削除

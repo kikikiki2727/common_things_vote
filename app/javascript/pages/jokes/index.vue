@@ -22,7 +22,7 @@
     </div>
     <transition name="return_button">
       <div class="return_top_button btn btn-secondary" v-show="returnTopActive" @click="returnTop()">
-        トップへ
+        <font-awesome-icon icon="chevron-circle-up" />
       </div>
     </transition>
   </div>

@@ -2,7 +2,7 @@
 lock "~> 3.16.0"
 
 set :application, "aruaru_vote"
-set :repo_url, "git@example.com:kikikiki2727/common_things_vote.git"
+set :repo_url, "git@github.com:kikikiki2727/common_things_vote.git"
 set :rbenv_ruby, File.read('.ruby-version').strip
 set :branch, ENV['BRANCH'] || "main"
 

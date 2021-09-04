@@ -1,6 +1,10 @@
 {
   "name": "hxh_diagnosis",
   "private": true,
+  "scripts": {
+    "lint": "eslint --ext .js,.vue app/javascript",
+    "lint-fix": "eslint --fix --ext .js,.vue app/javascript"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
@@ -21,6 +25,8 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^7.17.0",
     "webpack-dev-server": "^4.0.0"
   }
 }

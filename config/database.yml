@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: common_things_production
-  username: common_things
-  password: <%= ENV['HXH_DIAGNOSIS_DATABASE_PASSWORD'] %>
+  database: aruaru_vote_production
+  username: root
+  password: <%= Rails.application.credentials.db[:password] %>
+  host: <%= Rails.application.credentials.db[:hostname] %>

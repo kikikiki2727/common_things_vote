@@ -1,14 +1,25 @@
 <template>
   <div class="user_login">
-    <h2 class="page_title">ログイン</h2>
+    <h2 class="page_title">
+      ログイン
+    </h2>
     <div class="user_login_form">
       <validation-observer v-slot="{ handleSubmit } ">
         <div class="form-group">
-          <validation-provider v-slot="{ errors }" rules="required|email" name="メールアドレス">
+          <validation-provider
+            v-slot="{ errors }"
+            rules="required|email"
+            name="メールアドレス"
+          >
             <label for="email">
               メールアドレス
             </label>
-            <input id="email" type="email" class="form-control" v-model="user.email">
+            <input
+              id="email"
+              v-model="user.email"
+              type="email"
+              class="form-control"
+            >
             <p class="text-danger">
               {{ errors[0] }}
             </p>
@@ -16,11 +27,20 @@
         </div>
 
         <div class="form-group">
-          <validation-provider v-slot="{ errors }" rules="required|min:4" name="パスワード">
+          <validation-provider
+            v-slot="{ errors }"
+            rules="required|min:4"
+            name="パスワード"
+          >
             <label for="password">
               パスワード
             </label>
-            <input id="password" type="password" class="form-control" v-model="user.password">
+            <input
+              id="password"
+              v-model="user.password"
+              type="password"
+              class="form-control"
+            >
             <p class="text-danger">
               {{ errors[0] }}
             </p>
@@ -28,7 +48,10 @@
         </div>
 
         <div class="create_btn">
-          <button class="btn btn-primary" @click="handleSubmit(login())">
+          <button
+            class="btn btn-primary"
+            @click="handleSubmit(login())"
+          >
             ログイン
           </button>
         </div>

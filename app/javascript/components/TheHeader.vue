@@ -1,26 +1,52 @@
 <template>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light justify-content-between">
-      <router-link :to="{ name: 'JokeIndex' }" class="navbar-brand">あるあるネタ投票</router-link>
+      <router-link
+        :to="{ name: 'JokeIndex' }"
+        class="navbar-brand"
+      >
+        あるあるネタ投票
+      </router-link>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <router-link :to="{ name: 'JokeCreate' }" class="nav-link">投稿</router-link>
+          <router-link
+            :to="{ name: 'JokeCreate' }"
+            class="nav-link"
+          >
+            投稿
+          </router-link>
         </li>
 
         <template v-if="!authUser">
           <li class="nav-item">
-            <router-link :to="{ name: 'UserRegister' }" class="nav-link">ユーザー登録</router-link>
+            <router-link
+              :to="{ name: 'UserRegister' }"
+              class="nav-link"
+            >
+              ユーザー登録
+            </router-link>
           </li>
           <li class="nav-item">
-            <router-link :to="{ name: 'UserLogin' }" class="nav-link">ログイン</router-link>
+            <router-link
+              :to="{ name: 'UserLogin' }"
+              class="nav-link"
+            >
+              ログイン
+            </router-link>
           </li>
-         </template>
+        </template>
 
-         <template v-else>
-           <li class="nav-item">
-             <router-link to="#" class="nav-link" @click.native="logout()">ログアウト</router-link>
-           </li>
-         </template>
+        <template v-else>
+          <li class="nav-item">
+            <router-link
+              to="#"
+              class="nav-link"
+              @click.native="logout()"
+            >
+              ログアウト
+            </router-link>
+          </li>
+        </template>
       </ul>
     </nav>
   </header>

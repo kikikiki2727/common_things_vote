@@ -5,23 +5,46 @@
       <p>自分が面白いと思ったあるあるネタに投票しまくりましょう！</p>
     </div>
     <div class="sort_btn">
-      <div class="btn btn-outline-secondary" @click="handleVoteSortJokes()">投票数順</div>
-      <div class="btn btn-outline-secondary" @click="handleDescSortJokes()">新しい順</div>
-      <div class="btn btn-outline-secondary" @click="handleAscSortJokes()">古い順</div>
+      <div
+        class="btn btn-outline-secondary"
+        @click="handleVoteSortJokes()"
+      >
+        投票数順
+      </div>
+      <div
+        class="btn btn-outline-secondary"
+        @click="handleDescSortJokes()"
+      >
+        新しい順
+      </div>
+      <div
+        class="btn btn-outline-secondary"
+        @click="handleAscSortJokes()"
+      >
+        古い順
+      </div>
     </div>
     <div class="joke_list">
-      <template v-for="joke in jokes" class="joke_item">
+      <template
+        v-for="joke in jokes"
+        class="joke_item"
+      >
         <JokeItem 
-          :joke="joke" 
-          :authUser="authUser" 
-          :votes="filterVote(joke)" 
           :key="joke.id" 
+          :joke="joke" 
+          :auth-user="authUser" 
+          :votes="filterVote(joke)" 
           @deleteConfirm="deleteConfirm(joke)"
-          @handleCreateVote="handleCreateVote(joke)" />
+          @handleCreateVote="handleCreateVote(joke)"
+        />
       </template>
     </div>
     <transition name="return_button">
-      <div class="return_top_button btn btn-secondary" v-show="returnTopActive" @click="returnTop()">
+      <div
+        v-show="returnTopActive"
+        class="return_top_button btn btn-secondary"
+        @click="returnTop()"
+      >
         <font-awesome-icon icon="chevron-circle-up" />
       </div>
     </transition>

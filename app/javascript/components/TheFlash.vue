@@ -1,5 +1,8 @@
 <template>
-  <div class="message" v-if="message">
+  <div
+    v-if="message"
+    class="message"
+  >
     {{ message }}
   </div>
 </template>

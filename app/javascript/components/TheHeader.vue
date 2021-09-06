@@ -50,9 +50,10 @@
 
         <li class="nav-item">
           <a class="nav-link" 
-             href="https://twitter.com/share?url=https://aruaruneta.work&text=好きなあるあるネタに投票しよう！"
-             title="Twitter" target="_blank">
-            twitter
+             href="https://twitter.com/share?url=https://aruaruneta.work&hashtags=あるあるネタ"
+             title="Twitter" 
+             target="_blank">
+            Twitterで共有
           </a>
         </li>
       </ul>

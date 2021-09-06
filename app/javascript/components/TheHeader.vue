@@ -47,6 +47,14 @@
             </router-link>
           </li>
         </template>
+
+        <li class="nav-item">
+          <a class="nav-link" 
+             href="https://twitter.com/share?url=https://aruaruneta.work&text=好きなあるあるネタに投票しよう！"
+             title="Twitter" target="_blank">
+            twitter
+          </a>
+        </li>
       </ul>
     </nav>
   </header>

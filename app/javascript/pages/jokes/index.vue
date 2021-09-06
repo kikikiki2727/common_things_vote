@@ -194,4 +194,16 @@ export default {
   .return_button-enter, .return_button-leave-to {
     opacity: 0;
   }
+
+  @media screen and (max-width: 480px) {
+    .introduction {
+      text-align: center;
+      margin: 40px 20px;
+    }
+
+    .joke_list {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
 </style>

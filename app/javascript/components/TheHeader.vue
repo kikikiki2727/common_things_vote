@@ -50,9 +50,9 @@
 
         <li class="nav-item">
           <a class="nav-link" 
-             href="https://twitter.com/share?url=https://aruaruneta.work&hashtags=あるあるネタ"
-             title="Twitter" 
-             target="_blank">
+            href="https://twitter.com/share?url=https://aruaruneta.work&hashtags=あるあるネタ"
+            title="Twitter" 
+            target="_blank">
             Twitterで共有
           </a>
         </li>

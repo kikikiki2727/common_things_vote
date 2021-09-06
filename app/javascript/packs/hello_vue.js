@@ -10,6 +10,8 @@ import App from '../app.vue'
 import router from '../router'
 import axios from '../plugins/axios'
 import store from '../store'
+import Vuetify from "vuetify";
+import "vuetify/dist/vuetify.min.css";
 import 'bootstrap/dist/css/bootstrap.css'
 import '../plugins/veevalidate'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -24,10 +26,14 @@ Vue.config.productionTip = false;
 
 Vue.prototype.$axios = axios
 
+Vue.use(Vuetify);
+const vuetify = new Vuetify();
+
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     router,
     store,
+    vuetify,
     render: h => h(App)
   }).$mount()
   document.body.appendChild(app.$el)

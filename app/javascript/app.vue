@@ -1,6 +1,7 @@
 <template>
   <div>
     <TheHeader />
+    <div class="brank"></div>
     <TheFlash />
     <router-view />
     <TheFooter />
@@ -20,3 +21,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+  .brank {
+    margin-top: 100px;
+  }
+</style>

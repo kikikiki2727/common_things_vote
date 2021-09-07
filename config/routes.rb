@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :votes, only: %i[create]
     end
     resources :sessions, only: %i[create destroy]
-    resources :users, only: %i[create] do
+    resources :users, only: %i[index create] do
       collection do
         get 'me'
       end

@@ -1,16 +1,22 @@
+import { faTheaterMasks } from '@fortawesome/free-solid-svg-icons'
 import axios from '../../plugins/axios'
 
 const state = {
-  authUser: null
+  authUser: null,
+  users: []
 }
 
 const getters = {
-  authUser: state => state.authUser
+  authUser: state => state.authUser,
+  users: state => state.users
 }
 
 const mutations = {
-  setUser: (state, user) => {
+  setAuthUser: (state, user) => {
     state.authUser = user
+  },
+  setUsers: (state, users) => {
+    state.users = users
   }
 }
 
@@ -22,13 +28,13 @@ const actions = {
     axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.auth_token}`
 
     const userResponse = await axios.get('users/me')
-    commit('setUser', userResponse.data)
+    commit('setAuthUser', userResponse.data)
   },
 
   logoutUser({ commit }) {
     localStorage.removeItem('auth_token')
     axios.defaults.headers.common['Authorization'] = ''
-    commit('setUser', null)
+    commit('setAuthUser', null)
   },
 
   async fetchAuthUser({ commit, state }) {
@@ -43,12 +49,22 @@ const actions = {
 
     const authUser = userResponse.data
     if (authUser) {
-      commit('setUser', authUser)
+      commit('setAuthUser', authUser)
       return authUser
     } else {
-      commit('setUser', null)
+      commit('setAuthUser', null)
       return null
     }
+  },
+
+  fetchUsers({ commit }) {
+    axios.get('users')
+      .then(res => {
+        commit('setUsers', res.data)
+      })
+      .catch(err => {
+        console.log(err.response)
+      })
   }
 }
 

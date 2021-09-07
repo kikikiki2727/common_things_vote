@@ -1,5 +1,8 @@
 <template>
   <div class="joke_item">
+    <div class="joke_user">
+      {{ user.name }}さん
+    </div>
     <div class="joke_sentence">
       {{ joke.sentence }}
     </div>
@@ -41,7 +44,11 @@ export default {
     votes: {
       type: Array,
       required: true,
-    }
+    },
+    user: {
+      type: Object,
+      required: true,
+    },
   },
 
   methods: {
@@ -62,24 +69,27 @@ export default {
 
 <style scope>
   .joke_sentence {
-      margin-bottom: 20px;
-      white-space: pre-line; /* 改行や空白を表示 */
-    }
+    margin-bottom: 40px;
+    text-align: center;
+    white-space: pre-line; /* 改行や空白を表示 */
+  }
 
-    .vote_contents {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  .vote_contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .vote_number {
-      margin: auto 5px;
-      margin-top: 15px;
-    }
-  </style>
+  .vote_number {
+    margin: auto 5px;
+    margin-top: 15px;
+  }
 
-  <style scope>
-    .delete_btn {
-      margin-left: 5px;
-    }
-  </style>
+  .delete_btn {
+    margin-left: 5px;
+  }
+
+  .joke_user {
+    margin-left: 10px;
+  }
+</style>

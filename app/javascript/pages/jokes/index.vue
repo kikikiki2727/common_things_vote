@@ -5,24 +5,24 @@
       <p>自分が面白いと思ったあるあるネタに投票しまくりましょう！</p>
     </div>
     <div class="sort_btn">
-      <div
-        class="btn btn-outline-secondary"
+      <v-btn
+        class="btn"
         @click="handleVoteSortJokes()"
       >
         投票数順
-      </div>
-      <div
-        class="btn btn-outline-secondary"
+      </v-btn>
+      <v-btn
+        class="btn"
         @click="handleDescSortJokes()"
       >
         新しい順
-      </div>
-      <div
-        class="btn btn-outline-secondary"
+      </v-btn>
+      <v-btn
+        class="btn"
         @click="handleAscSortJokes()"
       >
         古い順
-      </div>
+      </v-btn>
     </div>
     <div class="joke_list">
       <template
@@ -164,8 +164,8 @@ export default {
     margin-bottom: 40px;
   }
 
-  .btn-outline-secondary {
-    margin-left: 3px;
+  .btn {
+    margin-left: 6px;
   }
 
   .joke_list {

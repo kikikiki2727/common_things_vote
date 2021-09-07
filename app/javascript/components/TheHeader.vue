@@ -58,7 +58,7 @@
                 href="https://twitter.com/share?url=https://aruaruneta.work&hashtags=あるあるネタ"
                 title="Twitter" 
                 target="_blank">
-                Twitterで共有
+                <v-icon>mdi-twitter</v-icon>
               </a>
             </li>
           </ul>
@@ -83,7 +83,10 @@
               class="nav-link"
             >
               <v-list-item>
-                <v-list-item-title>投稿</v-list-item-title>
+                <v-list-item-title>
+                  <v-icon>mdi-file-document-edit</v-icon>
+                  投稿
+                </v-list-item-title>
               </v-list-item>
             </router-link>
             
@@ -94,7 +97,10 @@
                 class="nav-link"
               >
                 <v-list-item>
-                  <v-list-item-title>ユーザー登録</v-list-item-title>
+                  <v-list-item-title>
+                    <v-icon>mdi-account-plus</v-icon>
+                    ユーザー登録
+                  </v-list-item-title>
                 </v-list-item>
               </router-link>
 
@@ -103,7 +109,10 @@
                 class="nav-link"
               >
                 <v-list-item>
-                  <v-list-item-title>ログイン</v-list-item-title>
+                  <v-list-item-title>
+                    <v-icon>mdi-login</v-icon>
+                    ログイン
+                  </v-list-item-title>
                 </v-list-item>
               </router-link>
             </template>
@@ -115,7 +124,10 @@
                 @click.native="logout()"
               >
                 <v-list-item>
-                  <v-list-item-title>ログアウト</v-list-item-title>
+                  <v-list-item-title>
+                    <v-icon>mdi-logout</v-icon>
+                    ログアウト
+                  </v-list-item-title>
                 </v-list-item>
               </router-link>
             </template>
@@ -126,7 +138,10 @@
                 target="_blank"
               >
                 <v-list-item>
-                  <v-list-item-title>Twitterで共有</v-list-item-title>
+                  <v-list-item-title>
+                    <v-icon>mdi-twitter</v-icon>
+                    Twitterで共有
+                  </v-list-item-title>
                 </v-list-item>
               </a>
 

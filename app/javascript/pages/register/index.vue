@@ -90,14 +90,11 @@
           </validation-provider>
         </div>
 
-        <div class="create_btn">
-          <button
-            class="btn btn-primary"
-            @click="handleSubmit(userRegister())"
-          >
-            登録
-          </button>
-        </div>
+        <v-btn
+          @click="handleSubmit(userRegister())"
+        >
+          登録
+        </v-btn>
       </validation-observer>
     </div>
   </div>

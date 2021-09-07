@@ -7,19 +7,20 @@
       <p class="vote_number">
         {{ votes.length }}票
       </p>
-      <div
-        class="btn btn-success"
+      <v-btn
+        color="success"
         @click="handleCreateVote"
       >
         投票
-      </div>
+      </v-btn>
       <template v-if="isAuthUserJoke(joke)">
-        <div
-          class="btn btn-danger delete_btn"
+        <v-btn
+          color="error"
+          class="delete_btn"
           @click="handleDeleteConfirm"
         >
           削除
-        </div>
+        </v-btn>
       </template>
     </div>
   </div>
@@ -73,6 +74,7 @@ export default {
 
     .vote_number {
       margin: auto 5px;
+      margin-top: 15px;
     }
   </style>
 

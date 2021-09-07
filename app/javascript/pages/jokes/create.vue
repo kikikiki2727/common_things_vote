@@ -25,14 +25,11 @@
             </p>
           </validation-provider>
         </div>
-        <div class="create_btn">
-          <button
-            class="btn btn-primary"
-            @click="handleSubmit(handleCreateJoke())"
-          >
-            投稿
-          </button>
-        </div>
+        <v-btn
+          @click="handleSubmit(handleCreateJoke())"
+        >
+          投稿
+        </v-btn>
       </validation-observer>
     </div>
   </div>

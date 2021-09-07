@@ -47,14 +47,11 @@
           </validation-provider>
         </div>
 
-        <div class="create_btn">
-          <button
-            class="btn btn-primary"
-            @click="handleSubmit(login())"
-          >
-            ログイン
-          </button>
-        </div>
+        <v-btn
+          @click="handleSubmit(login())"
+        >
+          ログイン
+        </v-btn>
       </validation-observer>
     </div>
   </div>

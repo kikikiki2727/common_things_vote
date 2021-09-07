@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <v-app>
     <TheHeader />
     <div class="brank"></div>
     <TheFlash />
     <router-view />
     <TheFooter />
-  </div>
+  </v-app>
 </template>
 
 <script>

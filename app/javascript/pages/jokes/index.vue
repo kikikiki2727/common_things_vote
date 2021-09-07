@@ -5,24 +5,24 @@
       <p>自分が面白いと思ったあるあるネタに投票しまくりましょう！</p>
     </div>
     <div class="sort_btn">
-      <div
-        class="btn btn-outline-secondary"
+      <v-btn
+        class="btn"
         @click="handleVoteSortJokes()"
       >
         投票数順
-      </div>
-      <div
-        class="btn btn-outline-secondary"
+      </v-btn>
+      <v-btn
+        class="btn"
         @click="handleDescSortJokes()"
       >
         新しい順
-      </div>
-      <div
-        class="btn btn-outline-secondary"
+      </v-btn>
+      <v-btn
+        class="btn"
         @click="handleAscSortJokes()"
       >
         古い順
-      </div>
+      </v-btn>
     </div>
     <div class="joke_list">
       <template
@@ -33,7 +33,8 @@
           :key="joke.id" 
           :joke="joke" 
           :auth-user="authUser" 
-          :votes="filterVote(joke)" 
+          :votes="filterVote(joke)"
+          :user="matchUser(joke)"
           @deleteConfirm="deleteConfirm(joke)"
           @handleCreateVote="handleCreateVote(joke)"
         />
@@ -69,7 +70,7 @@ export default {
 
   computed: {
     ...mapGetters('jokes', [ 'jokes' ]),
-    ...mapGetters('users', [ 'authUser' ]),
+    ...mapGetters('users', [ 'authUser', 'users' ]),
     ...mapGetters('votes', [ 'votes' ]),
 
     filterVote() {
@@ -79,11 +80,20 @@ export default {
         })
       }
     },
+
+    matchUser() {
+      return function(joke) {
+        return this.users.find(user => {
+          return user.id === joke.user_id
+        })
+      }
+    },
   },
 
   created() {
-    this.fetchJokes();
-    this.fetchVotes();
+    this.fetchJokes(),
+    this.fetchVotes(),
+    this.fetchUsers()
   },
 
   mounted() {
@@ -95,6 +105,7 @@ export default {
     ...mapMutations('jokes', [ 'ascSortJokes', 'descSortJokes' ]),
     ...mapActions('jokes', [ 'fetchJokes', 'deleteJoke', 'updateVoteSortJokes' ]),
     ...mapActions('votes', [ 'fetchVotes', 'createVote' ]),
+    ...mapActions('users', [ 'fetchUsers' ]),
 
     async handleDeleteJoke(joke) {
       try {
@@ -164,8 +175,8 @@ export default {
     margin-bottom: 40px;
   }
 
-  .btn-outline-secondary {
-    margin-left: 3px;
+  .btn {
+    margin-left: 6px;
   }
 
   .joke_list {

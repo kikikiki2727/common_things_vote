@@ -1,6 +1,8 @@
 <template>
   <div class="policy">
-    <h2 class="policy_title">プライバシーポリシー</h2>
+    <h2 class="policy_title">
+      プライバシーポリシー
+    </h2>
 
     <div class="policy_body">
       <div class="policy_subtitle">

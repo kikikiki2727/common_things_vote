@@ -13,7 +13,8 @@
       >
         プライバシーポリシー
       </router-link>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfAultkZkB26V9zYPvKPoWlMeZDHD_NLOVoFgloCo9Bp_AJlg/viewform"
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSfAultkZkB26V9zYPvKPoWlMeZDHD_NLOVoFgloCo9Bp_AJlg/viewform"
         class="inquiry_link"
         target="_blank" 
         rel="noopener noreferrer"

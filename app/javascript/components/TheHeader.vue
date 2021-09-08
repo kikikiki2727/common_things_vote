@@ -10,7 +10,7 @@
             あるあるネタ投票
           </router-link>
         </v-toolbar-title>
-        <v-spacer></v-spacer>
+        <v-spacer />
         <template v-if="windowWidth >= 600">
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -54,7 +54,8 @@
             </template>
 
             <li class="nav-item">
-              <a class="nav-link" 
+              <a
+                class="nav-link" 
                 href="https://twitter.com/share?url=https://aruaruneta.work&hashtags=あるあるネタ"
                 title="Twitter" 
                 target="_blank" 
@@ -67,7 +68,7 @@
         </template>
 
         <template v-else>
-          <v-app-bar-nav-icon @click="dropdown = true"></v-app-bar-nav-icon>
+          <v-app-bar-nav-icon @click="dropdown = true" />
         </template>
       </v-app-bar>
 
@@ -77,9 +78,11 @@
         temporary
         right
       >
-        <v-list nav dense>
+        <v-list
+          nav
+          dense
+        >
           <v-list-item-group>
-            
             <router-link
               :to="{ name: 'JokeCreate' }"
               class="nav-link"
@@ -134,27 +137,31 @@
               </router-link>
             </template>
 
-              <a class="nav-link" 
-                href="https://twitter.com/share?url=https://aruaruneta.work&hashtags=あるあるネタ"
-                title="Twitter" 
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <v-list-item>
-                  <v-list-item-title>
-                    <v-icon>mdi-twitter</v-icon>
-                    Twitterで共有
-                  </v-list-item-title>
-                </v-list-item>
-              </a>
+            <a
+              class="nav-link" 
+              href="https://twitter.com/share?url=https://aruaruneta.work&hashtags=あるあるネタ"
+              title="Twitter" 
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <v-list-item>
+                <v-list-item-title>
+                  <v-icon>mdi-twitter</v-icon>
+                  Twitterで共有
+                </v-list-item-title>
+              </v-list-item>
+            </a>
 
-              <a class="nav-link" @click="dropdown = false">
-                <v-list-item>
-                  <v-list-item-title>
-                    閉じる
-                  </v-list-item-title>
-                </v-list-item>
-              </a>
+            <a
+              class="nav-link"
+              @click="dropdown = false"
+            >
+              <v-list-item>
+                <v-list-item-title>
+                  閉じる
+                </v-list-item-title>
+              </v-list-item>
+            </a>
           </v-list-item-group>
         </v-list>
       </v-navigation-drawer>

@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :vote do
-    joke { nil }
+    association :joke
   end
 end

@@ -1,5 +1,12 @@
 <template>
-  <footer />
+  <v-footer class="footer">
+    <router-link
+      :to="{ name: 'TermsOfService' }"
+      class="terms_btn"
+    >
+      利用規約
+    </router-link>
+  </v-footer>
 </template>
 
 <script>
@@ -8,11 +15,15 @@ export default {
 }
 </script>
 
-<style scoped>
-  footer {
-    text-align: center;
-    background-color: rgba(192,192,192,0.3);
-    padding-top: 20px;
-    padding-bottom: 20px;
+<style lang="scss" scoped>
+  .footer {
+    padding: 20px 0;
+  }
+  .terms_btn {
+    color: black;
+
+    &:hover {
+      color: gray;
+    }
   }
 </style>

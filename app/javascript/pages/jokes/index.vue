@@ -195,7 +195,7 @@ export default {
   .return_top_button {
     position: fixed;
     right: 15px;
-    bottom: 15px;
+    bottom: 40px;
   }
 
   .return_button-enter-active, .return_button-leave-active {

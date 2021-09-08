@@ -1,9 +1,10 @@
 <template>
   <v-app>
     <TheHeader />
-    <div class="brank"></div>
+    <div class="brank" />
     <TheFlash />
     <router-view />
+    <div class="brank" />
     <TheFooter />
   </v-app>
 </template>

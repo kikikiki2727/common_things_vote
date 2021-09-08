@@ -57,7 +57,9 @@
               <a class="nav-link" 
                 href="https://twitter.com/share?url=https://aruaruneta.work&hashtags=あるあるネタ"
                 title="Twitter" 
-                target="_blank">
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 <v-icon>mdi-twitter</v-icon>
               </a>
             </li>
@@ -136,6 +138,7 @@
                 href="https://twitter.com/share?url=https://aruaruneta.work&hashtags=あるあるネタ"
                 title="Twitter" 
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <v-list-item>
                   <v-list-item-title>

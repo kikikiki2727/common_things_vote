@@ -13,6 +13,13 @@
       >
         プライバシーポリシー
       </router-link>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfAultkZkB26V9zYPvKPoWlMeZDHD_NLOVoFgloCo9Bp_AJlg/viewform"
+        class="inquiry_link"
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        お問い合わせ
+      </a>
     </div>
   </v-footer>
 </template>
@@ -40,6 +47,14 @@ export default {
   }
 
   .policy_link {
+    color: black;
+
+    &:hover {
+      color: gray;
+    }
+  }
+
+  .inquiry_link {
     color: black;
 
     &:hover {

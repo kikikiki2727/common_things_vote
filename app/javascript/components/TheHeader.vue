@@ -201,9 +201,14 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .title {
     color: black;
+    text-decoration: none;
+
+    &:hover {
+      color: gray;
+    }
   }
 
   .navbar {
@@ -220,9 +225,9 @@ export default {
 
   .nav-link {
     color: black;
-  }
-  
-  .nav-link:hover {
-    color: gray;
+
+    &:hover {
+      color: gray;
+    }
   }
 </style>

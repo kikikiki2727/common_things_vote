@@ -6,6 +6,7 @@ import JokeIndex from '../pages/jokes/index'
 import JokeCreate from '../pages/jokes/create'
 import UserRegister from '../pages/register/index'
 import UserLogin from '../pages/login/index'
+import NotFound from '../pages/shared/NotFound'
 
 Vue.use(Router)
 
@@ -33,6 +34,11 @@ const router = new Router({
       component: UserLogin,
       name: 'UserLogin',
     },
+    {
+      path: '*',
+      component: NotFound,
+      name: 'NotFound',
+    }
   ]
 })
 

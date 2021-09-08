@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :joke do
-    sentence { "MyText" }
-    user { nil }
+    sequence(:sentence) { |n| "sentence_#{n}" }
+    association :user
   end
 end

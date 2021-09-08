@@ -19,7 +19,7 @@ module ApplicationHelper
         description: :description, 
         type: 'website',
         url: :canonical,
-        image: image_url('vote.png'),
+        image: image_url('aruaru.png'),
         locale: 'ja_JP',
       },
       twitter: {

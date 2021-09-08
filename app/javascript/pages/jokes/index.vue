@@ -40,15 +40,6 @@
         />
       </template>
     </div>
-    <transition name="return_button">
-      <div
-        v-show="returnTopActive"
-        class="return_top_button btn btn-secondary"
-        @click="returnTop()"
-      >
-        <font-awesome-icon icon="chevron-circle-up" />
-      </div>
-    </transition>
   </div>
 </template>
 
@@ -60,12 +51,6 @@ export default {
   name: 'JokeIndex',
   components: {
     JokeItem,
-  },
-  data() {
-    return {
-      returnTopActive: false,
-      scroll: 0,
-    }
   },
 
   computed: {
@@ -93,11 +78,8 @@ export default {
   created() {
     this.fetchJokes(),
     this.fetchVotes(),
-    this.fetchUsers()
-  },
-
-  mounted() {
-    window.addEventListener('scroll', this.scrollWindow)
+    this.fetchUsers(),
+    this.scrollTop()
   },
 
   methods: {
@@ -142,22 +124,11 @@ export default {
       this.updateVoteSortJokes()
     },
 
-    returnTop() {
+    scrollTop() {
       window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+        top: 0
       })
-    },
-
-    scrollWindow() {
-
-      this.scroll = window.scrollY
-      if ( 100 <= this.scroll ) {
-        this.returnTopActive = true
-      } else {
-        this.returnTopActive = false
-      }
-    },
+    }
   },
 }
 </script>
@@ -190,20 +161,6 @@ export default {
     margin: 0 20px;
     margin-bottom: 40px;
     list-style: none;
-  }
-
-  .return_top_button {
-    position: fixed;
-    right: 15px;
-    bottom: 40px;
-  }
-
-  .return_button-enter-active, .return_button-leave-active {
-    transition: opacity .5s;
-  }
-
-  .return_button-enter, .return_button-leave-to {
-    opacity: 0;
   }
 
   @media screen and (max-width: 480px) {

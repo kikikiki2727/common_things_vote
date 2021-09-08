@@ -153,6 +153,17 @@
 <script>
 export default {
   name: 'TermsOfService',
+  created() {
+    this.scrollTop()
+  },
+
+  methods: {
+    scrollTop() {
+      window.scrollTo({
+        top: 0,
+      })
+    }
+  }
 }
 </script>
 

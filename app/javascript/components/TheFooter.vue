@@ -21,6 +21,7 @@ export default {
   }
   .terms_btn {
     color: black;
+    margin: 0 auto;
 
     &:hover {
       color: gray;

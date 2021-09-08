@@ -1,8 +1,6 @@
 <template>
   <div class="terms">
-    <div class="terms_title">
-      <h2>利用規約</h2>
-    </div>
+    <h2 class="terms_title">利用規約</h2>
     <div class="terms_introduction">
       <p>この利用規約（以下，「本規約」といいます。）は、むしめがね（以下，「当方」といいます。）がこのウェブサイト上で提供するサービス（以下，「本サービス」といいます。）の利用条件を定めるものです。</p>
       <p>登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。</p>
@@ -172,7 +170,7 @@ export default {
     margin: 0 40px;
   }
   .terms_title {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
   .terms_subtitle {
     margin: 20px 0;

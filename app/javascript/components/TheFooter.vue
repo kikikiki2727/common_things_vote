@@ -1,11 +1,19 @@
 <template>
   <v-footer class="footer">
-    <router-link
-      :to="{ name: 'TermsOfService' }"
-      class="terms_btn"
-    >
-      利用規約
-    </router-link>
+    <div class="footer_btn">
+      <router-link
+        :to="{ name: 'TermsOfService' }"
+        class="terms_link"
+      >
+        利用規約
+      </router-link>
+      <router-link
+        :to="{ name: 'PrivacyPolicy' }"
+        class="policy_link"
+      >
+        プライバシーポリシー
+      </router-link>
+    </div>
   </v-footer>
 </template>
 
@@ -19,9 +27,20 @@ export default {
   .footer {
     padding: 20px 0;
   }
-  .terms_btn {
-    color: black;
+  .footer_btn {
     margin: 0 auto;
+  }
+
+  .terms_link {
+    color: black;
+
+    &:hover {
+      color: gray;
+    }
+  }
+
+  .policy_link {
+    color: black;
 
     &:hover {
       color: gray;

@@ -27,7 +27,7 @@
       </template>
       <a
         class="share_btn"
-        :href="`https://twitter.com/share?url=https://aruaruneta.work&text=オススメのあるあるネタ→[${joke.sentence}]&hashtags=あるあるネタ`"
+        :href="`https://twitter.com/share?url=https://aruaruneta.work&text=オススメのあるあるネタ→「${joke.sentence}」 現在の投票数:${votes.length}票&hashtags=あるあるネタ`"
         title="Twitter" 
         target="_blank" 
         rel="noopener noreferrer"

@@ -52,18 +52,6 @@
                 </router-link>
               </li>
             </template>
-
-            <li class="nav-item">
-              <a
-                class="nav-link" 
-                href="https://twitter.com/share?url=https://aruaruneta.work&hashtags=あるあるネタ"
-                title="Twitter" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <v-icon>mdi-twitter</v-icon>
-              </a>
-            </li>
           </ul>
         </template>
 
@@ -136,21 +124,6 @@
                 </v-list-item>
               </router-link>
             </template>
-
-            <a
-              class="nav-link" 
-              href="https://twitter.com/share?url=https://aruaruneta.work&hashtags=あるあるネタ"
-              title="Twitter" 
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <v-list-item>
-                <v-list-item-title>
-                  <v-icon>mdi-twitter</v-icon>
-                  Twitterで共有
-                </v-list-item-title>
-              </v-list-item>
-            </a>
 
             <a
               class="nav-link"

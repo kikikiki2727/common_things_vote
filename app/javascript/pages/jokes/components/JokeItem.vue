@@ -25,6 +25,17 @@
           削除
         </v-btn>
       </template>
+      <a
+        class="share_btn"
+        :href="`https://twitter.com/share?url=https://aruaruneta.work&text=オススメのあるあるネタ→[${joke.sentence}]&hashtags=あるあるネタ`"
+        title="Twitter" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        <v-btn>
+          <v-icon>mdi-twitter</v-icon>
+        </v-btn>
+      </a>
     </div>
   </div>
 </template>
@@ -67,7 +78,7 @@ export default {
 }
 </script>
 
-<style scope>
+<style lang="scss" scope>
   .joke_sentence {
     margin-bottom: 40px;
     text-align: center;
@@ -91,5 +102,13 @@ export default {
 
   .joke_user {
     margin-left: 10px;
+  }
+
+  .share_btn {
+    margin-left: 5px;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 </style>

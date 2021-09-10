@@ -85,7 +85,7 @@ export default {
   methods: {
     ...mapMutations('flash', [ 'setMessage' ]),
     ...mapMutations('jokes', [ 'ascSortJokes', 'descSortJokes' ]),
-    ...mapActions('jokes', [ 'fetchJokes', 'deleteJoke', 'updateVoteSortJokes' ]),
+    ...mapActions('jokes', [ 'fetchJokes', 'deleteJoke' ]),
     ...mapActions('votes', [ 'fetchVotes', 'createVote' ]),
     ...mapActions('users', [ 'fetchUsers' ]),
 
@@ -121,7 +121,7 @@ export default {
     },
 
     handleVoteSortJokes() {
-      this.updateVoteSortJokes()
+      this.fetchJokes()
     },
 
     scrollTop() {

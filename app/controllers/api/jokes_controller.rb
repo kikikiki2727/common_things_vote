@@ -1,6 +1,6 @@
 class Api::JokesController < ApplicationController
   def index
-    jokes = Joke.all.sort { |a, b| b.vote_count <=> a.vote_count }
+    jokes = Joke.sort_votes
     render json: jokes
   end
 

@@ -48,6 +48,12 @@ module.exports = function(api) {
         }
       ],
       [
+        '@babel/plugin-proposal-private-methods', 
+        { 
+          loose: true 
+        }
+      ],
+      [
         '@babel/plugin-proposal-object-rest-spread',
         {
           useBuiltIns: true
@@ -66,7 +72,7 @@ module.exports = function(api) {
         {
           async: false
         }
-      ]
+      ],
     ].filter(Boolean)
   }
 }

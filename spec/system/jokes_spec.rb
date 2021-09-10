@@ -83,6 +83,7 @@ RSpec.describe "Jokes", type: :system do
       it '投稿が投票の多い順にソートされること' do
         visit root_path
         click_on '投票数順'
+        sleep 1
         joke_sentences = page.all('.joke_sentence')
         expect(joke_sentences[0].text).to eq  joke_with_3vote.sentence
         expect(joke_sentences[1].text).to eq  joke_with_2vote.sentence
@@ -94,6 +95,7 @@ RSpec.describe "Jokes", type: :system do
       it '投稿日時が新しい順にソートされること' do
         visit root_path
         click_on '新しい順'
+        sleep 1
         joke_sentences = page.all('.joke_sentence')
         expect(joke_sentences[0].text).to eq  joke_with_1vote.sentence
         expect(joke_sentences[1].text).to eq  joke_with_2vote.sentence
@@ -105,6 +107,7 @@ RSpec.describe "Jokes", type: :system do
       it '投稿日時が古い順にソートされること' do
         visit root_path
         click_on '古い順'
+        sleep 1
         joke_sentences = page.all('.joke_sentence')
         expect(joke_sentences[0].text).to eq  joke_with_3vote.sentence
         expect(joke_sentences[1].text).to eq  joke_with_2vote.sentence

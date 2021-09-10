@@ -30,11 +30,11 @@ const mutations = {
       return b.id - a.id
     })
   },
-  voteSortJokes: (state) => {
-    state.jokes.sort((a, b) => {
-      return b.vote_count - a.vote_count
-    })
-  },
+  // voteSortJokes: (state) => {
+  //   state.jokes.sort((a, b) => {
+  //     return b.vote_count - a.vote_count
+  //   })
+  // },
 }
 
 const actions = {
@@ -57,13 +57,13 @@ const actions = {
         commit('removeJoke', res.data)
       })
   },
-  updateVoteSortJokes({ commit }) {
-    axios.get('jokes')
-      .then(res => {
-        commit('setJokes', res.data)
-        commit('voteSortJokes')
-      })
-  }
+  // updateVoteSortJokes({ commit }) {
+  //   axios.get('jokes')
+  //     .then(res => {
+  //       commit('setJokes', res.data)
+  //       commit('voteSortJokes')
+  //     })
+  // }
 }
 
 export default {

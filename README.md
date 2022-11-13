@@ -4,7 +4,7 @@
 <br />
 
 # :earth_americas: 運用実績(2021年9月24日現在)
-サービスURL：https://aruaruneta.work/  
+サービスURL：~https://aruaruneta.work/~  
 <br />
 
 ✅リリース日:2021年9月8日  
